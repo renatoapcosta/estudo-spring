@@ -1,6 +1,6 @@
 package br.domain;
 
-public class SaintGraal {
+public class SaintGraal implements Graal {
 
     public SaintGraal() {
         System.out.println(getClass().getSimpleName() + " criado");

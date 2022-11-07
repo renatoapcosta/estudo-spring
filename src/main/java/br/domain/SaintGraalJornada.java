@@ -1,14 +1,17 @@
 package br.domain;
 
-public class SaintGraalJornada {
+public class SaintGraalJornada implements Jornada{
 
-    public SaintGraalJornada() {
+    private Graal graal;
+
+    public SaintGraalJornada(Graal graal) {
         System.out.println(getClass().getSimpleName() + " criado");
+        this.graal = graal;
     }
 
-    public SaintGraal embarque() throws GraalNotFoundException {
-        SaintGraal saintGraal = new SaintGraal();
+    public Graal embarque() throws GraalNotFoundException {
+
         System.out.println("encontrando Santo Graal");
-        return saintGraal;
+        return graal;
     }
 }
