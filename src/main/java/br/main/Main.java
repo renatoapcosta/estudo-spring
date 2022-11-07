@@ -1,20 +1,19 @@
 package br.main;
 
 import br.domain.*;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
 
 public class Main {
 
     public static void main(String[] args) {
-        Graal graal1 = new SaintGraal();
-        Jornada jornada1 = new SaintGraalJornada(graal1);
-        Cavaleiro cavaleiro1 = new Cavaleiro("Rei Arthur", jornada1);
+        ApplicationContext applicationContext = new GenericXmlApplicationContext("classpath:tavola-redonda.xml");
+        Cavaleiro cavaleiro1 = (Cavaleiro) applicationContext.getBean("cavaleiro");
         Graal saintGraal1 = cavaleiro1.embarqueNaJornada();
         saintGraal1.isSaint();
 
         System.out.println("-------------------------------------------------");
-        Graal graal2 = new SaintGraal();
-        Jornada jornada2 = new SaintGraalJornada(graal2);
-        Cavaleiro cavaleiro2 = new Cavaleiro("Rei Arthur", jornada2);
+        Cavaleiro cavaleiro2 = applicationContext.getBean(Cavaleiro.class);
         Graal saintGraal2 = cavaleiro2.embarqueNaJornada();
         saintGraal2.isSaint();
         System.out.println("-------------------------------------------------");

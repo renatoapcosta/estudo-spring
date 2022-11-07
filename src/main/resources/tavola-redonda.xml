@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+   <bean id="graal" class="br.domain.SaintGraal" />
+    <bean id="jornada" class="br.domain.SaintGraalJornada" scope="prototype">
+        <constructor-arg ref="graal" />
+    </bean>
+
+    <bean id="cavaleiro" class="br.domain.Cavaleiro" scope="prototype">
+        <constructor-arg value="Rei Arthur" />
+        <constructor-arg ref="jornada" />
+    </bean>
+</beans>
