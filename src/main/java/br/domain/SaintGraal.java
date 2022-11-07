@@ -1,5 +1,8 @@
 package br.domain;
 
+import org.springframework.stereotype.Component;
+
+@Component()
 public class SaintGraal implements Graal {
 
     public SaintGraal() {
